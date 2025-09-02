@@ -1,5 +1,6 @@
 package be.vdab.goededoel;
 
+import static org.assertj.core.api.Assertions.as;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.BIG_DECIMAL;
 
@@ -41,6 +42,11 @@ class GoedeDoelTest {
     @Test
     void doelVerschiltVanEenObjectMetEenAnderType(){
         assertThat(doel).isNotEqualTo(BigDecimal.ZERO);
+    }
+
+    @Test
+    void gelijkeDoelGevenHebbenDezelfdeHashCode(){
+        assertThat(doel).hasSameHashCodeAs(new GoedeDoel(NAAM));
     }
 
 }
